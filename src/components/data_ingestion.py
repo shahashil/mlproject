@@ -2,8 +2,6 @@ import os
 import sys
 
 from pathlib import Path
-print(sys.path)
-print(__file__)
 sys.path.append(str(Path(__file__).parent.parent))
 #from src.exception import CustomException
 
@@ -50,5 +48,8 @@ class DataIngestion:
             raise CustomException(e, sys)
         
 if __name__ == "__main__":
+    from components.data_transformation import  DataTransformationConfig, DataTransformation
     obj = DataIngestion()
-    obj.initiate_data_ingestion()
+    train_path, test_path = obj.initiate_data_ingestion()
+    dt = DataTransformation()
+    dt.initiate_data_transformation(train_path, test_path)
