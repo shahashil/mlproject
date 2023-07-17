@@ -54,10 +54,10 @@ class DataTransformation:
 
 
             preprocessor = ColumnTransformer(
-                steps = [
+                [          
                     ("numerical pipeline", numerical_pipeline, numerical_columns),
-                    ("categorical pipeline", categorical_pipeline, categorical_columns)
-                ]
+                    ("categorical pipeline", categorical_pipeline, categorical_columns)                
+            ]
             )
 
             return preprocessor
